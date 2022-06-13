@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import logo from './assets/logo.svg';
+// import './App.css';
 import { Counter } from './features/counter/Counter';
 import { DatePicker, message } from 'antd';
 import Header from './components/Header';
@@ -19,7 +19,7 @@ function App({ num }: { num: number }) {
       <Header />
       <h1>Hello world React! Num: {num}</h1>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <Counter />
       </header>
       <div style={{ width: 400, margin: '100px auto' }}>
