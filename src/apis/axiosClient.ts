@@ -8,7 +8,7 @@ import queryString from 'query-string';
 
 const axiosClient = axios.create({
   // baseURL: process.env.REACT_APP_API_URL,
-  baseURL: 'http://localhost:5000',
+  baseURL: 'https://api.nytimes.com/svc/books/v3',
   headers: {
     'content-type': 'application/json',
   },
@@ -20,8 +20,8 @@ axiosClient.interceptors.request.use(async (config) => {
 });
 axiosClient.interceptors.response.use(
   (response) => {
-    if (response && response.data) {
-      return response.data;
+    if (response && response.data.results) {
+      return response.data.results;
     }
     return response;
   },

@@ -1,18 +1,21 @@
-import { useState } from 'react';
-import { message } from 'antd';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import BestSeller from './pages/BestSeller';
 import BookReview from './pages/BookReview';
+import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import bookAPI from './apis/bookApi';
+
 function App({ num }: { num: number }) {
   const [date, setDate] = useState<any>(null);
-  const handleChange = (value: any) => {
-    message.info(
-      `Selected Date: ${value ? value.format('YYYY-MM-DD') : 'None'}`
-    );
-    setDate(value);
-  };
+  useEffect(() => {
+    bookAPI
+      .getListBestSellerBooks()
+      .then((res) => {
+        return bookAPI.getReviewsByTitle('11/22/63');
+      })
+      .then((res) => console.log(res));
+  }, []);
 
   return (
     <BrowserRouter>

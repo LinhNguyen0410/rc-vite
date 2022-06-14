@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
+import img1 from '@assets/s3_season_revert.png';
 const pages = ['Home', 'Best Seller'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -52,6 +53,7 @@ const ResponsiveAppBar = () => {
     <>
       <AppBar position="static">
         <Container maxWidth="xl">
+          <img src={img1} alt="test" />
           <Toolbar disableGutters>
             <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
             <Typography
