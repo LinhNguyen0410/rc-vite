@@ -11,7 +11,7 @@ export default defineConfig({
     open: true,
   },
   envDir: './env',
-  envPrefix: 'rc',
+  envPrefix: 'RC',
   resolve: {
     alias: {
       '@assets': path.resolve(__dirname, './src/public/assets'),
