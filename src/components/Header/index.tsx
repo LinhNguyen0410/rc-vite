@@ -21,10 +21,9 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const LinkStyled = styled(Link)`
   text-decoration: none;
   color: white;
+  width: 100%;
 `;
-const ButtonStyled = styled(Button)`
-  width: 300px;
-`;
+const ButtonStyled = styled(Button)``;
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -53,7 +52,6 @@ const ResponsiveAppBar = () => {
     <>
       <AppBar position="static">
         <Container maxWidth="xl">
-          <img src={img1} alt="test" />
           <Toolbar disableGutters>
             <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
             <Typography
