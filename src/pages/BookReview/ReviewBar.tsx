@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import styled from 'styled-components';
 import { Avatar, Rating } from '@mui/material';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
@@ -57,7 +58,7 @@ const ReviewBarWrapper = styled.div`
   }
 `;
 
-function ReviewBar() {
+const ReviewBar: FC<{ review: any }> = ({ review }) => {
   return (
     <ReviewBarWrapper>
       <div className="reivew-bar__header">
@@ -67,8 +68,8 @@ function ReviewBar() {
             src="https://cdn.chanhtuoi.com/uploads/2022/01/w400/avatar-tet.jpg.webp"
           />
           <div className="user-info">
-            <p className="user-name">{'Nina Holloway'}</p>
-            <p className="date-time">{'29 Aug 2017'}</p>
+            <p className="user-name">{review.byline}</p>
+            <p className="date-time">{review.publication_dt}</p>
           </div>
         </div>
         <div className="rating-box">
@@ -90,13 +91,9 @@ function ReviewBar() {
           </div>
         </div>
       </div>
-      <div className="review-content">
-        {
-          'No matter what your business happens to be, your customers are online. You need to keep in touch with them through different channels and using various content formats. After reading this guide, you’ll be ready to plan your content production and create the most popular types of content, or order them from your writers more wisely.'
-        }
-      </div>
+      <div className="review-content">{review.summary}</div>
     </ReviewBarWrapper>
   );
-}
+};
 
 export default ReviewBar;

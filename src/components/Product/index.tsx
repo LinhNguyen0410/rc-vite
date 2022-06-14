@@ -1,6 +1,16 @@
+import { FC } from 'react';
 import TravelExploreRoundedIcon from '@mui/icons-material/TravelExploreRounded';
 import { Box, Button, Typography } from '@mui/material';
 import styled from 'styled-components';
+import { useNavigate, createSearchParams } from 'react-router-dom';
+
+type Props = {
+  bookImage: string;
+  title: string;
+  author: string;
+  price: number;
+};
+
 const ProductWrapper = styled(Box)`
   display: flex;
   flex-direction: column;
@@ -52,31 +62,38 @@ const ButtonStyled = styled(Button)`
   }
 `;
 
-function Product() {
-  const handleReview = () => {};
+const Product: FC<Props> = ({ author, bookImage, price, title }) => {
+  let navigate = useNavigate();
+  const handleReview = (bookName: string) => {
+    navigate({
+      pathname: '/book-review',
+      search: createSearchParams({
+        bookName: bookName,
+      }).toString(),
+    });
+  };
 
   return (
     <ProductWrapper>
       <ImageWrapper>
-        <img
-          src="https://images-na.ssl-images-amazon.com/images/I/51RBNF7FXFL._SX384_BO1,204,203,200_.jpg"
-          alt="ahihi"
-        />
+        <img src={bookImage} alt="ahihi" />
       </ImageWrapper>
       <ProductInfoStyled>
-        <BookNameStyled variant="h6">
-          Getting Past You and Me to Build a More Loving Relationship
-        </BookNameStyled>
-        <AuthorNameStyled>Terrence Real</AuthorNameStyled>
+        <BookNameStyled variant="h6">{title}</BookNameStyled>
+        <AuthorNameStyled>{author}</AuthorNameStyled>
         <PriceOriginal>$26.99</PriceOriginal>
         <PriceStyled>$16.73</PriceStyled>
       </ProductInfoStyled>
-      <ButtonStyled onClick={handleReview} variant="contained" color="error">
+      <ButtonStyled
+        onClick={() => handleReview(title)}
+        variant="contained"
+        color="error"
+      >
         <TravelExploreRoundedIcon sx={{ mr: 1 }} />
         Review
       </ButtonStyled>
     </ProductWrapper>
   );
-}
+};
 
 export default Product;
