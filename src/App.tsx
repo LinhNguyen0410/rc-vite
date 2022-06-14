@@ -1,12 +1,10 @@
 import { useState } from 'react';
-// import logo from './assets/logo.svg';
-// import './App.css';
-import { Counter } from './features/counter/Counter';
-import { DatePicker, message } from 'antd';
+import { message } from 'antd';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
 import Header from './components/Header';
 import BestSeller from './pages/BestSeller';
 import BookReview from './pages/BookReview';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App({ num }: { num: number }) {
   const [date, setDate] = useState<any>(null);
   const handleChange = (value: any) => {
