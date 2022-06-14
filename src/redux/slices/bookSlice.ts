@@ -3,13 +3,13 @@ import { RootState, AppThunk } from '../store';
 import bookAPI from '../../apis/bookApi';
 import { BookType, ReviewType } from './type';
 
-export interface CounterState {
+export interface BookState {
   books: BookType[];
   bookReview: ReviewType[];
   status: 'idle' | 'loading' | 'failed';
 }
 
-const initialState: CounterState = {
+const initialState: BookState = {
   books: [],
   bookReview: [],
   status: 'idle',
