@@ -24,6 +24,7 @@ const ImageWrapper = styled(Box)`
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 0 6px gray;
+  height: 300px;
   cursor: pointer;
   & img {
     width: 100%;
@@ -43,15 +44,27 @@ const ProductInfoStyled = styled(Box)`
 `;
 const BookNameStyled = styled(Typography)`
   font-weight: bold !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 `;
-const AuthorNameStyled = styled.span``;
+const AuthorNameStyled = styled.span`
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+`;
 const PriceOriginal = styled.span`
   color: red;
   text-decoration: line-through;
 `;
 const PriceStyled = styled.span``;
 const ButtonStyled = styled(Button)`
-  margin-top: 15px !important;
   padding: 5px 14px;
   width: 160px;
   height: 40px;
@@ -78,7 +91,11 @@ const Product: FC<Props> = ({ author, bookImage, price, title }) => {
       <ImageWrapper>
         <img src={bookImage} alt="ahihi" />
       </ImageWrapper>
-      <ProductInfoStyled>
+      <ProductInfoStyled
+        sx={{
+          minHeight: '150px',
+        }}
+      >
         <BookNameStyled variant="h6">{title}</BookNameStyled>
         <AuthorNameStyled>{author}</AuthorNameStyled>
         <PriceOriginal>$26.99</PriceOriginal>
