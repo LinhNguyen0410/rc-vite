@@ -1,14 +1,14 @@
-import { Box, Grid, Button } from '@mui/material';
-import styled from 'styled-components';
-import ReviewBar from './ReviewBar';
-import ShareIcon from '@mui/icons-material/Share';
-import ReplyIcon from '@mui/icons-material/Reply';
-import DownloadIcon from '@mui/icons-material/Download';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useSearchParams } from 'react-router-dom';
+import DownloadIcon from '@mui/icons-material/Download';
+import ReplyIcon from '@mui/icons-material/Reply';
+import ShareIcon from '@mui/icons-material/Share';
+import { Avatar, Button, Grid, Skeleton, Box } from '@mui/material';
 import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { getReviewsAsync } from '../../redux/slices/bookSlice';
+import ReviewBar from './ReviewBar';
 
 const BookReviewWrapper = styled.div`
   background-color: #ffff;
@@ -60,68 +60,81 @@ const BookReviewWrapper = styled.div`
 function BookReview() {
   const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useAppDispatch();
-  const bookReviews = useAppSelector((state) => state.BooksReducer.bookReview);
+  const { bookReviews, status } = useAppSelector((state) => state.BooksReducer);
+
   useEffect(() => {
     dispatch(getReviewsAsync(searchParams.get('bookName')));
   }, [searchParams.get('bookName')]);
+  console.log('status', status);
+
   return (
-    <BookReviewWrapper>
-      {bookReviews.length > 0 ? (
-        <>
-          <div className="review-header">{'Review and rating'}</div>
-          <div className="review-container">
-            <Grid sx={{ margin: 0, width: '100%' }} container spacing={4}>
-              <Grid
-                className="review-list-box scrollbar"
-                id="style-1"
-                item
-                xs={10}
-              >
-                {bookReviews.map((item, idx) => {
-                  return <ReviewBar review={item} key={idx} />;
-                })}
-              </Grid>
-              <Grid className="review-action" item xs={2}>
-                <Button
-                  className="action-button share-button"
-                  variant="contained"
-                  endIcon={<ShareIcon />}
-                >
-                  Contained
-                </Button>
-                <Button
-                  className="action-button respond-button"
-                  variant="contained"
-                  endIcon={<ReplyIcon />}
-                >
-                  Respond
-                </Button>
-                <div>
-                  <div className="respond-nonefill">
-                    <DownloadIcon
-                      sx={{ paddingTop: '4px', marginRight: '10px' }}
-                      fontSize="small"
-                      color={'disabled'}
-                    />
-                    {'Download'}
-                  </div>
-                  <div className="respond-nonefill">
-                    <DeleteIcon
-                      sx={{ paddingTop: '4px', marginRight: '10px' }}
-                      fontSize="small"
-                      color={'error'}
-                    />
-                    {'Delete Review'}
-                  </div>
-                </div>
-              </Grid>
-            </Grid>
-          </div>
-        </>
+    <>
+      {status !== 'idle' ? (
+        <BookReviewWrapper>
+          <Skeleton width={'100%'} height={'230px'} />
+          <Skeleton width={'100%'} height={'230px'} />
+          <Skeleton width={'100%'} height={'230px'} />
+        </BookReviewWrapper>
       ) : (
-        <div>There is no reviews for this book</div>
+        <BookReviewWrapper>
+          {bookReviews.length > 0 ? (
+            <>
+              <div className="review-header">{'Review and rating'}</div>
+              <div className="review-container">
+                <Grid sx={{ margin: 0, width: '100%' }} container spacing={4}>
+                  <Grid
+                    className="review-list-box scrollbar"
+                    id="style-1"
+                    item
+                    xs={10}
+                  >
+                    {bookReviews.map((item, idx) => {
+                      return <ReviewBar review={item} key={idx} />;
+                    })}
+                  </Grid>
+                  <Grid className="review-action" item xs={2}>
+                    <Button
+                      className="action-button share-button"
+                      variant="contained"
+                      endIcon={<ShareIcon />}
+                    >
+                      Contained
+                    </Button>
+                    <Button
+                      className="action-button respond-button"
+                      variant="contained"
+                      endIcon={<ReplyIcon />}
+                    >
+                      Respond
+                    </Button>
+                    <div>
+                      <div className="respond-nonefill">
+                        <DownloadIcon
+                          sx={{ paddingTop: '4px', marginRight: '10px' }}
+                          fontSize="small"
+                          color={'disabled'}
+                        />
+                        {'Download'}
+                      </div>
+                      <div className="respond-nonefill">
+                        <DeleteIcon
+                          sx={{ paddingTop: '4px', marginRight: '10px' }}
+                          fontSize="small"
+                          color={'error'}
+                        />
+                        {'Delete Review'}
+                      </div>
+                    </div>
+                  </Grid>
+                </Grid>
+              </div>
+            </>
+          ) : (
+            <div>There is no reviews for this book</div>
+          )}
+        </BookReviewWrapper>
       )}
-    </BookReviewWrapper>
+    </>
   );
 }
 

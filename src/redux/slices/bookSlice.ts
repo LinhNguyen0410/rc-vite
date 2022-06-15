@@ -5,13 +5,13 @@ import { BookType, ReviewType } from './type';
 
 export interface BookState {
   books: BookType[];
-  bookReview: ReviewType[];
+  bookReviews: ReviewType[];
   status: 'idle' | 'loading' | 'failed';
 }
 
 const initialState: BookState = {
   books: [],
-  bookReview: [],
+  bookReviews: [],
   status: 'idle',
 };
 
@@ -55,8 +55,12 @@ export const booksSlice = createSlice({
       .addCase(getBooksAsync.rejected, (state) => {
         state.status = 'failed';
       })
+      .addCase(getReviewsAsync.pending, (state) => {
+        state.status = 'loading';
+      })
       .addCase(getReviewsAsync.fulfilled, (state, action) => {
-        state.bookReview = action.payload;
+        state.status = 'idle';
+        state.bookReviews = action.payload;
       });
   },
   // extraReducers: {
