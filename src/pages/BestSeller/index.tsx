@@ -1,5 +1,5 @@
 import { Box, Grid } from '@mui/material';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import Product from 'components/Product';
 import ProductSkeleton from 'components/Skeleton';

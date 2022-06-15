@@ -1,14 +1,13 @@
-import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DownloadIcon from '@mui/icons-material/Download';
 import ReplyIcon from '@mui/icons-material/Reply';
 import ShareIcon from '@mui/icons-material/Share';
-import { Avatar, Button, Grid, Skeleton, Box } from '@mui/material';
+import { Button, Grid, Skeleton } from '@mui/material';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from 'redux/hooks';
+import { getReviewsAsync } from 'redux/slices/bookSlice';
 import styled from 'styled-components';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { getReviewsAsync } from '../../redux/slices/bookSlice';
 import ReviewBar from './ReviewBar';
 
 const BookReviewWrapper = styled.div`
@@ -56,17 +55,19 @@ const BookReviewWrapper = styled.div`
       cursor: pointer;
     }
   }
+  .no-review {
+    text-align: center;
+  }
 `;
 
 function BookReview() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const dispatch = useAppDispatch();
   const { bookReviews, status } = useAppSelector((state) => state.BooksReducer);
 
   useEffect(() => {
     dispatch(getReviewsAsync(searchParams.get('bookName')));
   }, [searchParams.get('bookName')]);
-  console.log('status', status);
 
   return (
     <>
@@ -131,7 +132,7 @@ function BookReview() {
               </div>
             </>
           ) : (
-            <div>There is no reviews for this book</div>
+            <div className="no-review">There is no reviews for this book</div>
           )}
         </BookReviewWrapper>
       )}

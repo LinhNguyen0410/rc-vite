@@ -1,21 +1,22 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import MenuIcon from '@mui/icons-material/Menu';
+import {
+  AppBar,
+  Avatar,
+  Box,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Tooltip,
+  Typography,
+} from '@mui/material';
+import Container from '@mui/material/Container';
+import { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import avatar from '@assets/s3_season_revert.png';
 import styled from 'styled-components';
-import img1 from '@assets/s3_season_revert.png';
-const pages = ['Home', 'Best Seller'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const LinkStyled = styled(Link)`
@@ -26,12 +27,8 @@ const LinkStyled = styled(Link)`
 const ButtonStyled = styled(Button)``;
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -137,20 +134,20 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkStyled to="best-seller">Home</LinkStyled>
+                <LinkStyled to="/">Home</LinkStyled>
               </ButtonStyled>
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkStyled to="book-review">Review</LinkStyled>
+                <LinkStyled to="best-seller">Book Best Seller</LinkStyled>
               </Button>
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                  <Avatar alt="Remy Sharp" src={avatar} />
                 </IconButton>
               </Tooltip>
               <Menu
