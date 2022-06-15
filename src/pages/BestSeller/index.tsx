@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { getBooksAsync } from '../../redux/slices/bookSlice';
-import { Box, Container, Grid, Paper } from '@mui/material';
+import { Box, Grid } from '@mui/material';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import Product from '../../components/Product';
-import ProductSkeleton from '../../components/Skeleton';
+import Product from 'components/Product';
+import ProductSkeleton from 'components/Skeleton';
+import { useAppDispatch, useAppSelector } from 'redux/hooks';
+import { getBooksAsync } from 'redux/slices/bookSlice';
 
 const ProductListStyled = styled(Grid)`
   display: flex;

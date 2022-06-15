@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import TravelExploreRoundedIcon from '@mui/icons-material/TravelExploreRounded';
 import { Box, Button, Typography } from '@mui/material';
 import styled from 'styled-components';
