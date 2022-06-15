@@ -15,9 +15,9 @@ const ProductListStyled = styled(Grid)`
 
 function BestSeller() {
   const dispatch = useAppDispatch();
-  const { books, status } = useAppSelector((state) => state.BooksReducer)
+  const { books, status } = useAppSelector((state) => state.BooksReducer);
   useEffect(() => {
-    dispatch(getBooksAsync());
+    dispatch(getBooksAsync())
   }, []);
 
   return (
