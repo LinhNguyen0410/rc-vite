@@ -76,12 +76,12 @@ const ButtonStyled = styled(Button)`
 `;
 
 const Product: FC<Props> = ({ author, bookImage, price, title }) => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const handleReview = (bookName: string) => {
     navigate({
       pathname: '/book-review',
       search: createSearchParams({
-        bookName: bookName,
+        bookName,
       }).toString(),
     });
   };

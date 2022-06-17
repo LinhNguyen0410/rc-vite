@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../store';
-import bookAPI from '../../apis/bookApi';
+import bookAPI from 'apis/bookApi';
 import { BookType, ReviewType } from './type';
 
 export interface BookState {

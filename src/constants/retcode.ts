@@ -1,6 +1,6 @@
 import { ValueOf } from '../@types';
 
-export const RETCODE = <const>{
+export const RETCODE = {
   SUCCESS: '100',
 
   'account/unregisteredAccount': '101',

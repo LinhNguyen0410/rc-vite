@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import { BooksReducer } from './slices/bookSlice';
 // const rootReducer = combineReducers({
 //   CounterReducer

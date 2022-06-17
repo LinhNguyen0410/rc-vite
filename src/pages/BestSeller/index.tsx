@@ -5,6 +5,7 @@ import Product from 'components/Product';
 import ProductSkeleton from 'components/Skeleton';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { getBooksAsync } from 'redux/slices/bookSlice';
+import { v4 as uuid } from 'uuid';
 
 const ProductListStyled = styled(Grid)`
   display: flex;
@@ -15,10 +16,10 @@ const ProductListStyled = styled(Grid)`
 
 function BestSeller() {
   const dispatch = useAppDispatch();
-  const { books, status } = useAppSelector((state) => state.BooksReducer)
+  const { books, status } = useAppSelector((state) => state.BooksReducer);
   useEffect(() => {
-    dispatch(getBooksAsync())
-  }, []);
+    dispatch(getBooksAsync());
+  }, [dispatch]);
 
   return (
     <Box p={5}>
@@ -26,8 +27,8 @@ function BestSeller() {
         <ProductSkeleton />
       ) : (
         <ProductListStyled container spacing={2}>
-          {books.map((book, index) => (
-            <Grid key={index + book.title} item xs={12} md={3} lg={2}>
+          {books.map((book) => (
+            <Grid key={uuid()} item xs={12} md={3} lg={2}>
               <Product
                 title={book.title}
                 author={book.author}
