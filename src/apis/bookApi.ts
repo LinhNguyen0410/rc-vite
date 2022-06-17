@@ -7,7 +7,7 @@ class BookAPI {
     }`;
     return axiosClient.get<never, any>(url);
   };
-  getReviewsByTitle = (title: string) => {
+  getReviewsByTitle = (title: string | null) => {
     const url = `/reviews.json?title=${title}&api-key=${
       import.meta.env.RC_API_KEY
     }`;

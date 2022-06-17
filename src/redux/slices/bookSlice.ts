@@ -91,4 +91,4 @@ export const booksSlice = createSlice({
 export default booksSlice.reducer;
 
 const { actions, reducer } = booksSlice;
-export { actions as BoosActions, reducer as BooksReducer };
+export { actions as BookActions, reducer as BooksReducer };

@@ -1,3 +1,3 @@
-import { CounterActions } from './slices/counterSlice';
+import { BookActions } from './slices/bookSlice';
 
-export { CounterActions };
+export { BookActions };
