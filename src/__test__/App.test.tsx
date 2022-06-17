@@ -6,10 +6,10 @@
 // import { store } from '../redux/store';
 
 const isEven = (number: number) => {
-  return number % 2 === 0 ? true : false;
+  return number % 2 === 0;
 };
 
-const plusTring = (a: string, b: string) => {
+const plusString = (a: string, b: string) => {
   return a + b;
 };
 describe('is Even', function () {
@@ -37,9 +37,9 @@ describe('is Even', function () {
 
 describe('plus string', () => {
   it('plus string', function () {
-    expect(plusTring('nhat', 'khanh')).toBe(2);
+    expect(plusString('nhat', 'khanh')).toBe(2);
   });
   it('plus string', function () {
-    expect(plusTring('nhat', 'khanh')).toBe('nhatkhanh');
+    expect(plusString('nhat', 'khanh')).toBe('nhatkhanh');
   });
 });
