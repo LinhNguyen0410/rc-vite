@@ -3,14 +3,20 @@ import axiosClient from './axiosClient';
 
 const API_KEY = import.meta.env.RC_API_KEY;
 class BookAPI {
-  static getListBestSellerBooks() {
-    const url = `/lists/current/hardcover-fiction.json?api-key=${API_KEY}`;
-    return axiosClient.get<never, any>(url);
+  private url: string;
+
+  constructor() {
+    this.url = '';
   }
 
-  static getReviewsByTitle = (title: string | null) => {
-    const url = `/reviews.json?title=${title}&api-key=${API_KEY}`;
-    return axiosClient.get<never, any>(url);
+  getListBestSellerBooks() {
+    this.url = `/lists/current/hardcover-fiction.json?api-key=${API_KEY}`;
+    return axiosClient.get<never, any>(this.url);
+  }
+
+  getReviewsByTitle = (title: string | null) => {
+    this.url = `/reviews.json?title=${title}&api-key=${API_KEY}`;
+    return axiosClient.get<never, any>(this.url);
   };
 }
 const bookAPI = new BookAPI();

@@ -1,3 +1,5 @@
-import { BookActions } from './slices/bookSlice';
+import * as HomeActions from 'pages/Home/redux/homeActions';
 
-export { BookActions };
+const { ...homeActions } = HomeActions;
+
+export { homeActions };

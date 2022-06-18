@@ -24,7 +24,7 @@ export const getReviewsAsync = createAsyncThunk(
   async (title: string | null) => {
     const response = await bookAPI.getReviewsByTitle(title);
     return response;
-  }
+  },
 );
 
 export const booksSlice = createSlice({

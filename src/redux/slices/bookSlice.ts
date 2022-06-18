@@ -24,7 +24,7 @@ export const getReviewsAsync = createAsyncThunk(
   async (title: string | null) => {
     const response = await bookAPI.getReviewsByTitle(title);
     return response;
-  }
+  },
 );
 
 export const booksSlice = createSlice({
@@ -87,8 +87,6 @@ export const booksSlice = createSlice({
 // export const { increment, decrement, getBooksAsync } = counterSlice.actions;
 
 // export const selectCount = (state: RootState) => state.CounterReducer.value;
-
-export default booksSlice.reducer;
 
 const { actions, reducer } = booksSlice;
 export { actions as BookActions, reducer as BooksReducer };
