@@ -101,11 +101,7 @@ const Product: FC<Props> = ({ author, bookImage, price, title }) => {
         <PriceOriginal>$26.99</PriceOriginal>
         <PriceStyled>$16.73</PriceStyled>
       </ProductInfoStyled>
-      <ButtonStyled
-        onClick={() => handleReview(title)}
-        variant="contained"
-        color="error"
-      >
+      <ButtonStyled onClick={() => handleReview(title)} variant="contained" color="error">
         <TravelExploreRoundedIcon sx={{ mr: 1 }} />
         Review
       </ButtonStyled>

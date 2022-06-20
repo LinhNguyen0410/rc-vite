@@ -83,12 +83,7 @@ function BookReview() {
           <div className="review-header">{'Review and rating'}</div>
           <div className="review-container">
             <Grid sx={{ margin: 0, width: '100%' }} container spacing={4}>
-              <Grid
-                className="review-list-box scrollbar"
-                id="style-1"
-                item
-                xs={10}
-              >
+              <Grid className="review-list-box scrollbar" id="style-1" item xs={10}>
                 {bookReviews.map((item, idx) => (
                   <ReviewBar review={item} key={uuidv4()} />
                 ))}

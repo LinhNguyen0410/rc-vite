@@ -1,12 +1,10 @@
+import * as HomeReducer from 'pages/Home/redux/homeReducer';
 import { BooksReducer } from './slices/bookSlice';
-// const rootReducer = combineReducers({
-//   CounterReducer
-// });
+
+const { ...homeReducer } = HomeReducer;
 
 const rootReducer = {
   BooksReducer,
+  ...homeReducer,
 };
-
-// export type RootState = ReturnType<typeof rootReducer>
-
 export default rootReducer;

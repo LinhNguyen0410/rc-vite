@@ -17,8 +17,10 @@ import { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import avatar from '@assets/s3_season_revert.png';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 const LinkStyled = styled(Link)`
   text-decoration: none;
   color: white;
@@ -29,7 +31,7 @@ const ButtonStyled = styled(Button)``;
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-
+  const { t } = useTranslation();
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -100,12 +102,12 @@ const ResponsiveAppBar = () => {
               >
                 <MenuItem>
                   <Typography textAlign="center">
-                    <Link to="best-seller">Home</Link>
+                    <Link to="/">{t('homeLink')}</Link>
                   </Typography>
                 </MenuItem>
                 <MenuItem>
                   <Typography textAlign="center">
-                    <Link to="book-review">Review</Link>
+                    <Link to="best-seller">{t('bookBestSeller')}</Link>
                   </Typography>
                 </MenuItem>
               </Menu>
@@ -134,13 +136,10 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <LinkStyled to="/">Home</LinkStyled>
+                <LinkStyled to="/">{t('homeLink')}</LinkStyled>
               </ButtonStyled>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                <LinkStyled to="best-seller">Book Best Seller</LinkStyled>
+              <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+                <LinkStyled to="best-seller">{t('bookBestSeller')}</LinkStyled>
               </Button>
             </Box>
 

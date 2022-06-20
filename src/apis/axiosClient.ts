@@ -28,6 +28,6 @@ axiosClient.interceptors.response.use(
   (error) => {
     // Handle errors
     throw error;
-  }
+  },
 );
 export default axiosClient;

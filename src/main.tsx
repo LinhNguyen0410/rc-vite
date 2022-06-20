@@ -12,5 +12,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <Provider store={store}>
       <App num={30} />
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
