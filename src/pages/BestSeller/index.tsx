@@ -1,7 +1,7 @@
 import { Box, Grid } from '@mui/material';
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import Product from 'components/Product';
+import Product from 'pages/BestSeller/components/Product';
 import ProductSkeleton from 'components/Skeleton';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { getBooksAsync } from 'redux/slices/bookSlice';
