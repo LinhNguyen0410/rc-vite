@@ -5,13 +5,8 @@
 // import { Provider } from 'react-redux';
 // import { store } from '../redux/store';
 
-const isEven = (number: number) => {
-  return number % 2 === 0;
-};
-
-const plusString = (a: string, b: string) => {
-  return a + b;
-};
+const isEven = (number: number) => number % 2 === 0;
+const plusString = (a: string, b: string) => a + b;
 describe('is Even', function () {
   // it('should display pass in number', function () {
   //   let container = document.createElement('div');

@@ -1,42 +1,59 @@
 {
   "env": {
-      "node": true,
-      "es6": true
+    "node": true,
+    "es6": true
   },
-  "extends": ["react-app","prettier"],
+  "extends": [
+    "airbnb",
+    "react-app",
+    "prettier"
+  ],
   "plugins": ["react", "prettier"],
-  "parser":  "@babel/eslint-parser",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-      "ecmaVersion": "latest",
-      "requireConfigFile": false,
-      "sourceType": "module",
-      "allowImportExportEverywhere": true
+    "ecmaVersion": "latest",
+    "requireConfigFile": false,
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
   },
   "rules": {
-      "prettier/prettier": [
-          "error",
-          {
-            "arrowParens": "always",
-            "bracketSpacing": true,
-            "embeddedLanguageFormatting": "auto",
-            "htmlWhitespaceSensitivity": "css",
-            "insertPragma": false,
-            "jsxBracketSameLine": false,
-            "jsxSingleQuote": false,
-            "printWidth": 80,
-            "proseWrap": "preserve",
-            "quoteProps": "as-needed",
-            "requirePragma": false,
-            "semi": true,
-            "singleQuote": true,
-            "tabWidth": 2,
-            "trailingComma": "es5",
-            "useTabs": false,
-            "vueIndentScriptAndStyle": false,
-            "endOfLine": "auto"
-          }
-      ],
-      "no-restricted-globals": ["off"],
-      "@typescript-eslint/no-unused-vars": ["off"]
+    "prettier/prettier": [
+      "error",
+      {
+        "arrowParens": "always",
+        "bracketSpacing": true,
+        "embeddedLanguageFormatting": "auto",
+        "htmlWhitespaceSensitivity": "css",
+        "insertPragma": false,
+        "jsxBracketSameLine": false,
+        "jsxSingleQuote": false,
+        "printWidth": 80,
+        "proseWrap": "preserve",
+        "quoteProps": "as-needed",
+        "requirePragma": false,
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "es5",
+        "useTabs": false,
+        "vueIndentScriptAndStyle": false,
+        "endOfLine": "auto"
+      }
+    ],
+    "no-restricted-globals": ["off"],
+    "@typescript-eslint/no-unused-vars": ["off"],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [
+      2,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "import/order": 0,
+    "no-param-reassign": 0,
+    "react/jsx-curly-brace-presence": 0,
+    "import/prefer-default-export": 0,
+    "react/function-component-definition": 0,
+    "arrow-body-style": 0
   }
 }

@@ -17,8 +17,8 @@ import { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import avatar from '@assets/s3_season_revert.png';
 import styled from 'styled-components';
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const LinkStyled = styled(Link)`
   text-decoration: none;
   color: white;
