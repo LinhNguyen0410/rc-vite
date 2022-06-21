@@ -1,4 +1,4 @@
-import { Chip, Stack, Avatar, ToggleButtonGroup, ToggleButton } from '@mui/material';
+import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { homeActions } from 'redux/rootAction';

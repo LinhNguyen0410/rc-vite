@@ -1,4 +1,3 @@
-import React from 'react';
 import { Grid, Skeleton, Box } from '@mui/material';
 import { v4 as uuid } from 'uuid';
 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 function OutputCurrentTime() {
   return <div>OutputCurrentTime</div>;
 }
