@@ -1,62 +1,8 @@
 import { FC } from 'react';
-import styled from 'styled-components';
 import { Avatar, Rating } from '@mui/material';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
-
-const customGreyColor = `#a7a9aa`;
-const ReviewBarWrapper = styled.div`
-  width: 90%;
-  border: 2px solid ${customGreyColor};
-  border-radius: 5px;
-  margin-bottom: 25px;
-  padding: 10px 25px;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  &:hover {
-    border: 2px solid #8fd6ca;
-  }
-  .reivew-bar__header {
-    width: 100%;
-    padding-bottom: 20px;
-    border-bottom: 0.3px solid ${customGreyColor};
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .user-box {
-      display: flex;
-      align-items: center;
-    }
-    p {
-      margin: 2px 20px;
-    }
-    .user-name {
-      font-weight: bold;
-      font-size: 20px;
-    }
-    .date-time {
-      font-size: 14px;
-      color: ${customGreyColor};
-    }
-    .rating-box {
-      .rating {
-        display: flex;
-        align-items: center;
-      }
-      .comment {
-        float: right;
-        display: flex;
-        align-items: center;
-      }
-    }
-  }
-  .review-content {
-    padding-top: 10px;
-    line-height: 25px;
-    color: grey;
-  }
-`;
+import { ReviewBarWrapper } from './styled';
 
 const ReviewBar: FC<{ review: any }> = ({ review }) => (
   <ReviewBarWrapper>

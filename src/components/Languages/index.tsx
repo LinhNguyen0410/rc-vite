@@ -1,10 +1,11 @@
+import { FC } from 'react';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { homeActions } from 'redux/rootAction';
 import { v4 as uuid } from 'uuid';
 
-export default function Language() {
+const Language: FC = () => {
   const languageList = ['en', 'vn'];
 
   const dispatch = useAppDispatch();
@@ -27,4 +28,5 @@ export default function Language() {
       ))}
     </ToggleButtonGroup>
   );
-}
+};
+export default Language;

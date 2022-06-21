@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import './App.css';
 import Header from 'components/Header';
 import BestSeller from 'pages/BestSeller';
@@ -5,7 +6,7 @@ import BookReview from 'pages/BookReview';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from 'pages/Home';
 
-function App({ num }: { num: number }) {
+const App: FC = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -17,6 +18,6 @@ function App({ num }: { num: number }) {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

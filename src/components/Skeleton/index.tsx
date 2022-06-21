@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import { Grid, Skeleton, Box } from '@mui/material';
 import { v4 as uuid } from 'uuid';
 
-function ProductSkeleton() {
+const ProductSkeleton: FC = () => {
   return (
     <Box>
       <Grid container>
@@ -17,6 +18,6 @@ function ProductSkeleton() {
       </Grid>
     </Box>
   );
-}
+};
 
 export default ProductSkeleton;

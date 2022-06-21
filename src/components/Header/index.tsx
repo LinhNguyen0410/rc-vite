@@ -1,3 +1,4 @@
+import { FC, useState } from 'react';
 import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
@@ -13,22 +14,14 @@ import {
   Typography,
 } from '@mui/material';
 import Container from '@mui/material/Container';
-import { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import avatar from '@assets/s3_season_revert.png';
-import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import { LinkStyled, ButtonStyled } from './styled';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const LinkStyled = styled(Link)`
-  text-decoration: none;
-  color: white;
-  width: 100%;
-`;
-const ButtonStyled = styled(Button)``;
-
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar: FC = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const { t } = useTranslation();
