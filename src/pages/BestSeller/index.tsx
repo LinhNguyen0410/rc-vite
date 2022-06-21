@@ -1,20 +1,14 @@
+import { FC, useEffect } from 'react';
 import { Box, Grid } from '@mui/material';
-import { useEffect } from 'react';
-import styled from 'styled-components';
+
 import Product from 'pages/BestSeller/components/Product';
 import ProductSkeleton from 'components/Skeleton';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { v4 as uuid } from 'uuid';
 import { getBooksAsync } from 'pages/BestSeller/redux/slices/bookSellerSlice';
+import { ProductListStyled } from "./styled";
 
-const ProductListStyled = styled(Grid)`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 30px;
-`;
-
-function BestSeller() {
+const BestSeller: FC = () => {
   const dispatch = useAppDispatch();
   const { books, status } = useAppSelector((state) => state.BookSellerReducer);
   useEffect(() => {
@@ -41,6 +35,6 @@ function BestSeller() {
       )}
     </Box>
   );
-}
+};
 
 export default BestSeller;
