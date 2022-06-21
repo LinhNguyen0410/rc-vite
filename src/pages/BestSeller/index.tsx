@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import Product from 'pages/BestSeller/components/Product';
 import ProductSkeleton from 'components/Skeleton';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
-import { getBooksAsync } from 'redux/slices/bookSlice';
 import { v4 as uuid } from 'uuid';
+import { getBooksAsync } from 'pages/BestSeller/redux/slices/bookSellerSlice';
 
 const ProductListStyled = styled(Grid)`
   display: flex;
@@ -16,7 +16,7 @@ const ProductListStyled = styled(Grid)`
 
 function BestSeller() {
   const dispatch = useAppDispatch();
-  const { books, status } = useAppSelector((state) => state.BooksReducer);
+  const { books, status } = useAppSelector((state) => state.BookSellerReducer);
   useEffect(() => {
     dispatch(getBooksAsync());
   }, []);
