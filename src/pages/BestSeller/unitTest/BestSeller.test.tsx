@@ -1,7 +1,6 @@
+import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import * as renderer from 'react-test-renderer';
-import { act } from 'react-test-renderer';
-import { createMemoryHistory } from 'history';
 
 import Product from '../components/Product';
 
