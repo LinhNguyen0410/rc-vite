@@ -19,7 +19,7 @@ function BestSeller() {
   const { books, status } = useAppSelector((state) => state.BooksReducer);
   useEffect(() => {
     dispatch(getBooksAsync());
-  }, [dispatch]);
+  }, []);
 
   return (
     <Box p={5}>

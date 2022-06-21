@@ -1,12 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import bookAPI from 'apis/bookApi';
-import { BookType, ReviewType } from './type';
-
-export interface BookState {
-  books: BookType[];
-  bookReviews: ReviewType[];
-  status: 'idle' | 'loading' | 'failed';
-}
+import { FETCH_BOOKS, FETCH_BOOK_REVIEWS } from 'pages/BestSeller/constant/redux';
+import { BookState } from './type';
 
 const initialState: BookState = {
   books: [],
@@ -14,12 +9,12 @@ const initialState: BookState = {
   status: 'idle',
 };
 
-export const getBooksAsync = createAsyncThunk('books/fetchBooks', async () => {
+export const getBooksAsync = createAsyncThunk(FETCH_BOOKS, async () => {
   const response = await bookAPI.getListBestSellerBooks();
-  return response.books;
+  return response?.books;
 });
 export const getReviewsAsync = createAsyncThunk(
-  'books/fetchBookReviews',
+  FETCH_BOOK_REVIEWS,
   async (title: string | null) => {
     const response = await bookAPI.getReviewsByTitle(title);
     return response;

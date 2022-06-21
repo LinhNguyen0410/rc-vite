@@ -11,3 +11,10 @@ export type ReviewType = {
   publication_dt: string;
   summary: string;
 };
+
+export type Status = 'idle' | 'loading' | 'failed';
+export interface BookState {
+  books: BookType[];
+  bookReviews: ReviewType[];
+  status: Status;
+}
