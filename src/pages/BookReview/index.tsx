@@ -6,7 +6,7 @@ import { Button, Grid, Skeleton } from '@mui/material';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
-import { getReviewsAsync } from 'redux/slices/bookSlice';
+import { getReviewsAsync } from 'pages/BookReview/redux/slices/bookReviewSlice';
 import styled from 'styled-components';
 import ReviewBar from './ReviewBar';
 import { v4 as uuidv4 } from 'uuid';
@@ -64,7 +64,7 @@ const BookReviewWrapper = styled.div`
 function BookReview() {
   const [searchParams] = useSearchParams();
   const dispatch = useAppDispatch();
-  const { bookReviews, status } = useAppSelector((state) => state.BooksReducer);
+  const { bookReviews, status } = useAppSelector((state) => state.BooksReviewReducer);
 
   useEffect(() => {
     dispatch(getReviewsAsync(searchParams.get('bookName')));
